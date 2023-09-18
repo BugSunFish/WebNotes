@@ -4,11 +4,22 @@
         @await Html.PartialAsync("MetatagsPartial")
         @await Html.PartialAsync("CssPartial")
     </head>
-    <body>
-        @await Html.PartialAsync("HeaderPartial")
+    <body style="display: grid; grid-template-rows: 5rem 1fr; height:100vh">
 
-        @RenderBody()
+        <div class="d-flex border border-dark border-2 text-center" style="align-items:center">
+            @await Html.PartialAsync("HeaderPartial")
+        </div>
+
+        <div class="d-flex">
+            <div class="p-3 bg-white border border-dark border-2" style="width: 20rem;">
+                @await Html.PartialAsync("SlidebarPartial")
+            </div>
+            <div class="p-3 border border-dark border-2" style="flex:1; overflow-wrap: break-word">
+                @RenderBody()
+            </div>
+        </div>
 
         @await Html.PartialAsync("FooterPartial")
+
     </body>
 </html>
